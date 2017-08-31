@@ -1,12 +1,11 @@
 #!/bin/bash
 
 environment="$1"
-environment_prefix=$(echo $environment | head -c 1)
 region="$2" 
 application="sprinklr-application"   
 docker_config="Dockerrun.aws.json"
 beanstalk_config=".elasticbeanstalk/config.yml"
-web_environment="${environment_prefix}-${application}"
+web_environment="${application}"
 
 sed \
     -e "s/WEB-ENVIRONMENT/$web_environment/g" \
