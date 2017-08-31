@@ -12,7 +12,6 @@ dependencies:
     - sed -i -e 's/\/home\/ubuntu/\/root/g' .ssh/config
     - wget https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip
     - unzip terraform_0.9.11_linux_amd64.zip -d terraform/
-    - cd terraform/dependencies && ../terraform init && ../terraform apply
     - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
     - docker build --rm=false -t yros/sprinklr-application:$CIRCLE_SHA1 .
 
