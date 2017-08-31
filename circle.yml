@@ -1,0 +1,38 @@
+machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+  services:
+    - docker
+
+dependencies:
+  override:
+    - pip install awscli awsebcli
+    - aws configure set default.region sa-east-1
+    - cp -r /home/ubuntu/.ssh .
+    - sed -i -e 's/\/home\/ubuntu/\/root/g' .ssh/config
+    - wget https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip
+    - unzip terraform_0.9.11_linux_amd64.zip -d terraform/
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
+    - docker build --rm=false  yros/sprinklr-application:$CIRCLE_SHA1 .
+
+test:
+  override:
+    - docker run -d -p 80:8080 yros/sprinklr-application:$CIRCLE_SHA1
+    - while ! nc -z localhost 80; do echo "Waiting Docker Container"; done
+    - curl http://localhost:80/en
+ 
+deployment:
+  stage:
+    branch: stage 
+    commands:
+      - cd terraform/stage && ../terraform init && ../terraform apply
+      - docker push yros/sprinklr-application:$CIRCLE_SHA1
+      - cd elasticbeanstalk;
+        bash deploy.sh stage sa-east-1
+  prod:
+    branch: master
+    commands:
+      - cd terraform/production && ../terraform init && ../terraform apply
+      - docker push yros/sprinklr-application:$CIRCLE_SHA1
+      - cd elasticbeanstalk;
+        bash deploy.sh production sa-east-1
