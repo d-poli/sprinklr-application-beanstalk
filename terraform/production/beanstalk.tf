@@ -19,7 +19,7 @@ resource "aws_elastic_beanstalk_environment" "nodejs" {
   setting {
     namespace = "aws:elasticbeanstalk:application"
     name      = "Application Healthcheck URL"
-    value     = "/en"
+    value     = "/en/"
   }
 
   setting {
