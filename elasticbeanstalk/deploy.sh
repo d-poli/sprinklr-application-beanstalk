@@ -1,11 +1,10 @@
 #!/bin/bash
 
 environment="$1"
-region="$2" 
-application="sprinklr-application"   
+region="$2"   
 docker_config="Dockerrun.aws.json"
 beanstalk_config=".elasticbeanstalk/config.yml"
-web_environment="${application}"
+web_environment="nodejs-web"
 
 sed \
     -e "s/WEB-ENVIRONMENT/$web_environment/g" \

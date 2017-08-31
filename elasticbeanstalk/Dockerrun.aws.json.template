@@ -1,11 +1,11 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Authentication": {
-    "Bucket": "sprinklr-docker-virginia",
+    "Bucket": "sprinklr-docker",
     "Key": "dockercfg-sprinklr"
   },
   "Image": {
-    "Name": "sprinklr/sprinklr_application:TAG_VERSION",
+    "Name": "yros/sprinklr-application:TAG_VERSION",
     "Update": "true"
   },
   "Ports": [
