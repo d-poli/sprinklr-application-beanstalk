@@ -1,4 +1,4 @@
-resource "aws_elastic_beanstalk_application" "sprinklr" {
+resource "aws_elastic_beanstalk_application" "nodejs" {
   name        = "sprinklr-application"
   description = "Sprinklr nodejs  test Application"
 }

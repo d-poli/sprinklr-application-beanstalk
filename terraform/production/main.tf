@@ -70,7 +70,7 @@ variable "certificate_arn" {
 /* DNS Zone */
 
 data "aws_route53_zone" "nodejs_public_zone" {
-  name = "domain.com.br"
+  name = "yros.com.br"
   private_zone = false
 }
 
