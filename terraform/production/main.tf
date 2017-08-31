@@ -32,13 +32,6 @@ variable "private_subnet_a_cidr" {
   default = "10.42.3.0/24"
 }
 
-
-variable "private_subnet_b_cidr" {
-  type    = "string"
-  default = "10.42.4.0/24"
-}
-
-
 variable "private_subnet_c_cidr" {
   type    = "string"
   default = "10.42.5.0/24"
@@ -47,11 +40,6 @@ variable "private_subnet_c_cidr" {
 variable "public_subnet_a_cidr" {
   type    = "string"
   default = "10.42.0.0/24"
-}
-
-variable "public_subnet_b_cidr" {
-  type    = "string"
-  default = "10.42.1.0/24"
 }
 
 variable "public_subnet_c_cidr" {

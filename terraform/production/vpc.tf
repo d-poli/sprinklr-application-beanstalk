@@ -43,21 +43,6 @@ resource "aws_subnet" "subnet-A-public" {
     }
 }
 
-resource "aws_subnet" "subnet-B-public" {
-    vpc_id = "${aws_vpc.nodejs_vpc.id}"
-
-    cidr_block = "${var.public_subnet_b_cidr}"
-    availability_zone = "${var.aws_region}b"
-    map_public_ip_on_launch = true
-
-    tags {
-        Name = "${var.stack_name} Public Subnet B"
-        Creation-Tool = "terraform"
-        Env = "${var.stack_env}"
-    }
-}
-
-
 resource "aws_subnet" "subnet-C-public" {
     vpc_id = "${aws_vpc.nodejs_vpc.id}"
 
@@ -94,10 +79,6 @@ resource "aws_route_table_association" "associate-public-subnet-A-route-table" {
     route_table_id = "${aws_route_table.public-route-table.id}"
 }
 
-resource "aws_route_table_association" "associate-public-subnet-B-route-table" {
-    subnet_id = "${aws_subnet.subnet-B-public.id}"
-    route_table_id = "${aws_route_table.public-route-table.id}"
-}
 
 resource "aws_route_table_association" "associate-public-subnet-C-route-table" {
     subnet_id = "${aws_subnet.subnet-C-public.id}"
@@ -124,20 +105,6 @@ resource "aws_subnet" "subnet-A-private" {
     }
 }
 
-resource "aws_subnet" "subnet-B-private" {
-    vpc_id = "${aws_vpc.nodejs_vpc.id}"
-
-    cidr_block = "${var.private_subnet_b_cidr}"
-    availability_zone = "${var.aws_region}b"
-    
-    tags {
-
-        Name = "${var.stack_name} Private Subnet B"
-        Creation-Tool = "terraform"
-        Env = "${var.stack_env}"
-
-    }
-}
 
 resource "aws_subnet" "subnet-C-private" {
     vpc_id = "${aws_vpc.nodejs_vpc.id}"
@@ -176,23 +143,6 @@ resource "aws_route_table" "private-route-table-A" {
 }
 
 
-resource "aws_route_table" "private-route-table-B" {
-    vpc_id = "${aws_vpc.nodejs_vpc.id}"
-
-    route {
-        cidr_block = "0.0.0.0/0"
-        nat_gateway_id = "${aws_nat_gateway.natgw-b.id}"
-    }
-
-    tags {
-
-        Name = "${var.stack_name} Private Subnet B"
-        Creation-Tool = "terraform"
-        Env = "${var.stack_env}"
-    }
-}
-
-
 resource "aws_route_table" "private-route-table-C" {
     vpc_id = "${aws_vpc.nodejs_vpc.id}"
 
@@ -218,10 +168,6 @@ resource "aws_route_table_association" "associate-private-subnet-A-route-table" 
     route_table_id = "${aws_route_table.private-route-table-A.id}"
 }
 
-resource "aws_route_table_association" "associate-private-subnet-B-route-table" {
-    subnet_id = "${aws_subnet.subnet-B-private.id}"
-    route_table_id = "${aws_route_table.private-route-table-B.id}"
-}
 
 resource "aws_route_table_association" "associate-private-subnet-C-route-table" {
     subnet_id = "${aws_subnet.subnet-C-private.id}"
@@ -238,11 +184,6 @@ resource "aws_nat_gateway" "natgw-a" {
   subnet_id     = "${aws_subnet.subnet-A-public.id}"
 }
 
-resource "aws_nat_gateway" "natgw-b" {
-  allocation_id = "${aws_eip.nat-b.id}"
-  subnet_id     = "${aws_subnet.subnet-B-public.id}"
-}
-
 resource "aws_nat_gateway" "natgw-c" {
   allocation_id = "${aws_eip.nat-c.id}"
   subnet_id     = "${aws_subnet.subnet-C-public.id}"
@@ -255,10 +196,6 @@ NAT Elastic IPS
 */
 
 resource "aws_eip" "nat-a" {
-    vpc = true
-}
-
-resource "aws_eip" "nat-b" {
     vpc = true
 }
 
