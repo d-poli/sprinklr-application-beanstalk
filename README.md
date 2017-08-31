@@ -37,6 +37,11 @@ Open address http://localhost/en and enjoy !
 
 Toda a infraestrutura é codificada, todo o ambiente fica  no mesmo repositório da aplicação, qualquer alteração de ambiente é feita via deploy seguindo os processos agile/scrum, o versionamento da aplicação versiona o ambiente como um todo.
 
+Arquitetura
+
+![Cloud Architecture](https://github.com/yrosaguiar/sprinklr-application-beanstalk/blob/master/docs/cloud.png)
+
+
 Serviços Utilizados:
 
 - AWS (Cloud) - https://aws.amazon.com
@@ -70,6 +75,10 @@ O ambientes estão hospedado na AWS, ENDPOINT URL: http://nodejs.yros.com.br, to
 
 
 ## Deployment 
+
+Fluxo de Deploy
+
+![Deploy Flow](https://github.com/yrosaguiar/sprinklr-application-beanstalk/blob/master/docs/deploy-flow.jpeg)
 
 - O deploy em produção será feito sempre que houver alteração na branch master.
 
