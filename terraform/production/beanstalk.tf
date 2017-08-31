@@ -156,7 +156,7 @@ resource "aws_elastic_beanstalk_environment" "nodejs" {
 
  setting {
     namespace = "aws:elasticbeanstalk:application:environment"
-    name = "$APPLICATION_NAME""
+    name = "$APPLICATION_NAME"
     value = "sprinklr-application"
   }
 
