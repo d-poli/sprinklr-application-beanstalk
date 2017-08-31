@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{site.locale}}">
+{{> html-head }}
+
+<body>
+  {{> header }}
+
+  <div id="main">
+    <div class="container has-side-nav">
+
+      {{> navigation key='foundation'}}
+
+      <article>
+        <div class="container no-headline">
+
+          <ul class="news-list">
+            {{#each collections.blogAnnounce}}
+              {{#if title}}
+                <li>
+                  <time datetime="{{ date }}">{{ strftime date }}</time>
+                  <a href="/{{../site.locale}}/{{ path }}/">{{ title }}</a>
+                </li>
+              {{/if}}
+            {{/each}}
+          </ul>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  {{> footer }}
+</body>
+</html>
