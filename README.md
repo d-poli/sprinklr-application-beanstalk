@@ -1,3 +1,5 @@
+
+
 # [nodejs.org](https://nodejs.org/)
 
 [![Build Status](https://img.shields.io/travis/nodejs/nodejs.org/master.svg)](http://travis-ci.org/nodejs/nodejs.org)
@@ -13,6 +15,28 @@ On a technical level, inspiration has been taken from the `iojs.org` repo while 
 This repo's issues section has become the primary home for the Website WG's coordination efforts (meeting planning, minute approval, etc.).
 
 ## Contributing
+
+### Instalation with Docker
+
+Requires: docker, docker-compose
+
+Build
+
+```bash
+docker build -t yros/sprinklr-application .
+```
+
+Running Application with Docker (NodeJS App)
+
+```bash
+docker -p 80:8080 yros/sprinklr-application
+```
+
+Running Application with Docker-compose (Nginx and Nodejs App)
+
+```bash
+docker-compose up
+```
 
 Please contribute! There are plenty of [good first contributions](https://github.com/nodejs/nodejs.org/labels/good%20first%20contribution) to do. To get started, you have to [fork](https://github.com/nodejs/nodejs.org/fork) this repo to your own GitHub account first. Then open up a terminal on your machine and enter the following commands:
 
