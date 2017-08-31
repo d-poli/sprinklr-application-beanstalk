@@ -14,7 +14,7 @@ resource "aws_elb" "nodejs_elb" {
 
 
   listener {
-    instance_port      = 8080
+    instance_port      = 80
     instance_protocol  = "tcp"
     lb_port            = 443
     lb_protocol        = "ssl"
