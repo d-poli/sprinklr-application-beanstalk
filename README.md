@@ -1,21 +1,3 @@
-
-
-# [nodejs.org](https://nodejs.org/)
-
-[![Build Status](https://img.shields.io/travis/nodejs/nodejs.org/master.svg)](http://travis-ci.org/nodejs/nodejs.org)
-[![Dependency Status](https://img.shields.io/david/nodejs/nodejs.org.svg)](https://david-dm.org/nodejs/nodejs.org)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
-## What is this repo?
-
-[nodejs.org](https://nodejs.org) by the [Node.js Foundation](https://nodejs.org/foundation/) builds on the merged community's past website projects to form a self-publishing, community-managed version of the previous site.
-
-On a technical level, inspiration has been taken from the `iojs.org` repo while design and content has been migrated from the old [nodejs.org repo](https://github.com/nodejs/nodejs.org-archive). These technical changes have helped to facilitate community involvement and empower the foundation's internationalization communities to provide alternative website content in other languages.
-
-This repo's issues section has become the primary home for the Website WG's coordination efforts (meeting planning, minute approval, etc.).
-
-## Contributing
-
 ### Instalation with Docker
 
 Requires: docker, docker-compose
@@ -37,6 +19,27 @@ Running Application with Docker-compose (Nginx and Nodejs App)
 ```bash
 docker-compose up
 ```
+
+Open address http://localhost/en and enjoy !
+
+
+# [nodejs.org](https://nodejs.org/)
+
+[![Build Status](https://img.shields.io/travis/nodejs/nodejs.org/master.svg)](http://travis-ci.org/nodejs/nodejs.org)
+[![Dependency Status](https://img.shields.io/david/nodejs/nodejs.org.svg)](https://david-dm.org/nodejs/nodejs.org)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+## What is this repo?
+
+[nodejs.org](https://nodejs.org) by the [Node.js Foundation](https://nodejs.org/foundation/) builds on the merged community's past website projects to form a self-publishing, community-managed version of the previous site.
+
+On a technical level, inspiration has been taken from the `iojs.org` repo while design and content has been migrated from the old [nodejs.org repo](https://github.com/nodejs/nodejs.org-archive). These technical changes have helped to facilitate community involvement and empower the foundation's internationalization communities to provide alternative website content in other languages.
+
+This repo's issues section has become the primary home for the Website WG's coordination efforts (meeting planning, minute approval, etc.).
+
+## Contributing
+
+
 
 Please contribute! There are plenty of [good first contributions](https://github.com/nodejs/nodejs.org/labels/good%20first%20contribution) to do. To get started, you have to [fork](https://github.com/nodejs/nodejs.org/fork) this repo to your own GitHub account first. Then open up a terminal on your machine and enter the following commands:
 
