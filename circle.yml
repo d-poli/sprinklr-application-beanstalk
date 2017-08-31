@@ -27,12 +27,10 @@ deployment:
     commands:
       - cd terraform/stage && ../terraform init && ../terraform apply
       - docker push yros/sprinklr-application:$CIRCLE_SHA1
-      - cd elasticbeanstalk;
-        bash deploy.sh stage sa-east-1
+      - cd elasticbeanstalk && bash deploy.sh stage sa-east-1
   prod:
     branch: master
     commands:
       - cd terraform/production && ../terraform init && ../terraform apply
       - docker push yros/sprinklr-application:$CIRCLE_SHA1
-      - cd elasticbeanstalk;
-        bash deploy.sh production sa-east-1
+      - cd elasticbeanstalk && bash deploy.sh production sa-east-1
