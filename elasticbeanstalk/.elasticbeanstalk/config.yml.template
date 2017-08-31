@@ -1,0 +1,15 @@
+branch-defaults:
+  default:
+    environment: WEB-ENVIRONMENT
+global:
+  application_name: sprinklr_application
+  default_ec2_keyname: sprinklr_devops
+  default_platform: arn:aws:elasticbeanstalk:us-east-1::platform/Docker running on
+    64bit Amazon Linux/2.6.0
+  default_region: REGION 
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
