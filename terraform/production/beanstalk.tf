@@ -15,7 +15,7 @@ resource "aws_elastic_beanstalk_environment" "nodejs" {
     name      = "InstanceType"
     value     = "t2.micro"
   }
-  
+
   setting {
     namespace = "aws:elasticbeanstalk:application"
     name      = "Application Healthcheck URL"
@@ -43,12 +43,24 @@ resource "aws_elastic_beanstalk_environment" "nodejs" {
   setting {
     namespace = "aws:ec2:vpc"
     name      = "Subnets"
-    value     = "${aws_subnet.subnet-A-private.id}, ${aws_subnet.subnet-A-private.id}"
+    value     = "${aws_subnet.subnet-A-private.id}, ${aws_subnet.subnet-C-private.id}"
   }
   setting {
     namespace = "aws:ec2:vpc"
     name      = "ELBSubnets"
-    value     = "${aws_subnet.subnet-A-private.id}, ${aws_subnet.subnet-A-private.id}"
+    value     = "${aws_subnet.subnet-A-public.id}, ${aws_subnet.subnet-C-public.id}"
+  }
+
+  setting {
+    namespace = "aws:ec2:vpc"
+    name = "AssociatePublicIpAddress"
+    value = "false"
+  }
+
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name = "SecurityGroups"
+    value = "${aws_security_group.sgnat.id}"
   }
 
   setting {
@@ -161,11 +173,17 @@ resource "aws_elastic_beanstalk_environment" "nodejs" {
   }
 
   setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "IamInstanceProfile"
-    value     = "aws-elasticbeanstalk-ec2-role"
+      namespace = "aws:elasticbeanstalk:environment"
+      name      = "ServiceRole"
+      value     = "${aws_iam_instance_profile.beanstalk_service.name}"
   }
-  
+
+  setting {
+      namespace = "aws:autoscaling:launchconfiguration"
+      name      = "IamInstanceProfile"
+      value     = "${aws_iam_instance_profile.beanstalk_ec2.name}"
+  }
+
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SSHSourceRestriction"
