@@ -114,9 +114,9 @@ Fluxo de Deploy
 
 - O CircleCI faz testes unitários, sobe a aplicação e faz um GET, pode ser integrado com ferramentas de teste automatizados (Selenium, Ghost Inspector, Postman para testar APIs).
 
-- Após os testes é feito push da imagem do docker para o registry, e feito uma chamada para a API do Beanstalk solicitando o deploy da nova versão.
+- Após os testes, é feito push da imagem do docker para o registry, e feito uma chamada para a API do Beanstalk solicitando o deploy da nova versão.
 
-- O CircleCI é testa as alterações de infraestrutura com o terraform plan.
+- O CircleCI testa as alterações de infraestrutura com o terraform plan.
 
 - O processo de deploy segue o procedimento rolling updates, na qual é feito deploy em metade das instâncias e testado o health da aplicação, caso seja bem sucedido é feito no restante das instâncias, em caso de falhas é feito o rollback para a versão anterior.
 
