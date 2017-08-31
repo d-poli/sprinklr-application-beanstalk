@@ -63,8 +63,6 @@ O ambientes estão hospedado na AWS, ENDPOINT URL: http://nodejs.yros.com.br, to
 
 https://www.terraform.io/
 
-# Terraform templates
-
 Templates para criação dos ambientes. 
 
 ## Como utilizar?
