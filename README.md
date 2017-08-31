@@ -57,6 +57,8 @@ Requisitos:
 
 - Repositório Docker.
 
+- Repostório adicionado ao Circle CI e configuração de variáveis de  ambiente no CircleCI.
+
 O ambientes estão hospedado na AWS, ENDPOINT URL: http://nodejs.yros.com.br, toda a infraestrutura Cloud foi criada com o terraform.
 
 ### Terraform 
