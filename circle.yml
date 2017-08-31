@@ -13,7 +13,7 @@ dependencies:
     - wget https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip
     - unzip terraform_0.9.11_linux_amd64.zip -d terraform/
     - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
-    - docker build --rm=false  yros/sprinklr-application:$CIRCLE_SHA1 .
+    - docker build --rm=false -t yros/sprinklr-application:$CIRCLE_SHA1 .
 
 test:
   override:
