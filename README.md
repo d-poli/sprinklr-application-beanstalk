@@ -3,7 +3,7 @@
 
 Repositório Nodejs Oficial: https://github.com/nodejs/nodejs.org 
 
-URL da Aplicação: http://nodejs.yros.com.br
+URL da Aplicação: http://nodejs.yros.com.br/en/
 
 
 ### Usando com Docker
@@ -57,7 +57,7 @@ Requisitos:
 
 - Repositório Docker.
 
-O ambientes estão hospedado na AWS, ENDPOINT URL: http://nodejs.yros.com.br, toda a infraestrutura Cloud foi criada com o terraform.
+O ambientes estão hospedado na AWS, ENDPOINT URL: http://nodejs.yros.com.br/en/, toda a infraestrutura Cloud foi criada com o terraform.
 
 ### Terraform 
 
