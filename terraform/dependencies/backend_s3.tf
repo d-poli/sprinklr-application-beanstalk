@@ -1,3 +1,8 @@
+
+provider "aws" {
+  region     = "us-west-2"
+}
+
 resource "aws_s3_bucket" "sprinklr_terraform" {
   bucket = "sprinklr-test-terraform-states"
   acl    = "private"
