@@ -1,12 +1,12 @@
 /* General Parameters */
 
 provider "aws" {
-  region     = "us-west-2"
+  region     = "sa-east-1"
 }
 
 variable "aws_region" {
   type    = "string"
-  default = "us-west-2"
+  default = "sa-east-1"
 }
 
 variable "stack_name" {

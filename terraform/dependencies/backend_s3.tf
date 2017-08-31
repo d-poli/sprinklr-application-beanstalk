@@ -1,6 +1,6 @@
 
 provider "aws" {
-  region     = "us-west-2"
+  region     = "sa-east-1"
 }
 
 resource "aws_s3_bucket" "sprinklr_terraform" {
